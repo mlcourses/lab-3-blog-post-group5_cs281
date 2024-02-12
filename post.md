@@ -8,6 +8,8 @@ In the last lab - **Intro to Digital Design**, we delved into the intricacies of
 
 In Lab03 - Ramp Circuit, we'll delve into constructing a circuit that displays numbers on a 7-segment LED based on a knob's position, much like a volume control. The lab starts with some groundwork, where we simplify circuit designs and understand how to represent numbers using a special kind of light display. The main part of the lab involves building a "ramp circuit," which means that as we turn the knob, the numbers displayed on the LED will gradually increase or decrease. We use a device called an Arduino to help with this, which turns the knob's movement into a digital signal. Then, we'll figure out how to use this digital signal to light up the correct LEDs on the 7-segment display. It's a mix of figuring out how to talk to the Arduino, designing the logic for the LED display, and putting it all together on a breadboard. The challenge is to make sure that as we turn the knob, the right numbers light up on the display.
 
+<img src="./assets/overview.png" alt="overview" />
+
 ## Lab Objectives
 
 1. Understand the function and operation of a 7-segment display for digital number representation.
@@ -30,29 +32,51 @@ In Lab03 - Ramp Circuit, we'll delve into constructing a circuit that displays n
 
 - 7-segment display
 
-<img src="./assets/7segment.png" alt="7-segment display" />
-
 - Arduino microcontroller
 
 - 7404 NOT gate IC
 
 - 7408 AND gate IC
 
-- 7432 OR gate ICs
+- Two 7432 OR gate ICs
 
 - IC data sheets
 
 - Wires and connection tools
 
-- Logic Probe
+- Logic Probes
 
 - Arduino IDE software
 
 - USB cable
 
-- Laptop or device for programming and connecting to the Arduino
+- Laptop or device for programming and powering the Arduino
 
 ## Project Steps
+
+### Understanding The 7-Segment Display
+
+- A 7-segment display is an electronic component used in devices like digital clocks and calculators.
+
+- It consists of seven individually illuminated segments arranged in a specific pattern.
+
+- These segments can be independently turned on or off to display numbers from 0 to 9 and sometimes additional characters.
+
+- When activated in combination, these segments create the desired numeral or character.
+
+- The display is controlled by electronic circuits that determine which segments should be illuminated to represent the desired digit or character.
+
+- Below is an example of a 7-segment display. 
+
+<img src="./assets/7segment.png" alt="7-segment display" />
+
+### Building The Lab: Understand The Voltage Divider
+
+- A voltage divider is a fundamental circuit used to generate a specific voltage level from a power supply. Imagine it as a way to adjust the volume of electricity, similar to adjusting the volume knob on a speaker.
+
+<img src="./assets/voltage_divider1.png" alt="voltage divider example" />
+
+- Consider the circuit above. Here we have a single resistor in a circuit that is wired between Vcc and GND. The equation that governs the operation of this circuit is **V = IR** with **V** being the voltage, **I** as the current and **R** is the resistance value of the resistor. 
 
 
 
