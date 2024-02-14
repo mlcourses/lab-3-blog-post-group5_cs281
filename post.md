@@ -70,7 +70,9 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 <img src="./assets/7segment.png" alt="7-segment display" />
 
-### Building The Lab: Understand The Voltage Divider
+### The Voltage Divider
+
+#### 1. Understanding the Voltage Divider
 
 - A voltage divider is a fundamental circuit used to generate a specific voltage level from a power supply. Imagine it as a way to adjust the volume of electricity, similar to adjusting the volume knob on a speaker.
 
@@ -78,7 +80,21 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 - Consider the circuit above. Here we have a single resistor in a circuit that is wired between Vcc and GND. The equation that governs the operation of this circuit is **V = IR** with **V** being the voltage, **I** as the current and **R** is the resistance value of the resistor. 
 
+#### 2. Understanding the Potentiometer
 
+#### 3. Wiring the Potentiometer
+
+#### 4. Reading and Converting the Potentiometer Output
+
+
+### Building The Combinational Circuit
+
+#### Designing the Logic with Karnaugh Maps 
+
+#### Testing the Logic with **Logisim**
+
+
+### Putting It All Together
 
 ## Testing
 
