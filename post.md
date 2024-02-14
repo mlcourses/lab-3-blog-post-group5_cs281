@@ -80,6 +80,16 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 - Consider the circuit above. Here we have a single resistor in a circuit that is wired between Vcc and GND. The equation that governs the operation of this circuit is **V = IR** with **V** being the voltage, **I** as the current and **R** is the resistance value of the resistor. 
 
+<img src="./assets/voltage_divider2.png" alt="2 resistors" />
+
+- Now lets look at an example of a voltage divider above. We are having two resistors lining up in one path. The total resistance **R = R1 + R2** would be used to compute the current **I**. 
+
+- Given an electricity current of +5 Volts that flows through the circuit, some voltage is lost at **R1** and the rest is lost at **R2**. The ratio of these resistance values determines the amount of voltage at location **V** as a a fraction of the voltage **Vcc**, which can be calculated like below: 
+
+<img src="./assets/equation.png" alt="equation" />
+
+- By choosing our two resistance values, we can pick any voltage **V** that we desire (between 0 and 5 Volts).
+
 #### 2. Understanding the Potentiometer
 
 #### 3. Wiring the Potentiometer
@@ -87,11 +97,11 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 #### 4. Reading and Converting the Potentiometer Output
 
 
-### Building The Combinational Circuit
+### Designing The Combinational Circuit
 
-#### Designing the Logic with Karnaugh Maps 
+#### 1. Designing the Logic with Karnaugh Maps 
 
-#### Testing the Logic with **Logisim**
+#### 2. Testing the Logic with **Logisim**
 
 
 ### Putting It All Together
