@@ -72,9 +72,11 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 ### Designing The Combinational Circuit
 
-#### 1. Designing the Logic with Karnaugh Maps 
+#### 1. Constructing Truth Table
 
-#### 2. Testing the Logic with **Logisim**
+#### 2. Simplifying the Boolean expressions using Karnaugh Maps
+
+#### 3. Testing the Logic with **Logisim**
 
 ### The Voltage Divider
 
@@ -168,14 +170,14 @@ delay(WAIT);
 
 - `dval = val / 171`: Converts the analog reading to a decimal value (`dval`) using a normalization factor. If we got values outside the 0 to 5 range, you can subtract `val` with a certain value to get the right `dval` values we want. 
 
-- Serial Print Statements: Outputs the potentiometer reading (val) and its corresponding decimal value (dval) to the serial monitor.
+- **Serial Print Statements**: Outputs the potentiometer reading (val) and its corresponding decimal value (dval) to the serial monitor.
 
 - Using bit manipulation methods, the decimal value (`dval`) is converted into binary representation by extracting each bit sequentially.
 
 - `dval & 1` extracts the least significant bit of the 3-bit signal input, which is then written to pin 11 (digitalWrite(11, bitval)), representing signal C.
 After each LSB extraction, dval is shifted right by 1 bit (dval = dval >> 1) to prepare for the next bit extraction.
-delay(WAIT): Pauses the program execution for 1 second before repeating the loop.
 
+- `delay(WAIT)`: Pauses the program execution for 1000 miliseconds before repeating the loop.
 
 - The variable `dval` represents the decimal value converted from the analog input from the potentiometer. The most significant bit of `dval` corresponds to pin 13, the middle bit corresponds to pin 12, and the least significant bit corresponds to pin 11.
 
@@ -184,6 +186,8 @@ delay(WAIT): Pauses the program execution for 1 second before repeating the loop
 - Pin 12 (digital pin 12) represents the middle bit of dval, so it will be the input **B1** of our combinational circuit.
 
 - Pin 11 (digital pin 11) represents the least significant bit of dval, so it will be the input **B0** of our combinational circuit.
+
+&rarr; If we relate back to the truth table of all the LED segments of the 7-segment display with three inputs, we can see that the data inputs that come from the Arduino's digital pins (13, 12, 11) corresponds to the truth table's inputs **B2**, **B1**, **B0**. This is because when we consider the 3-bit inputs, **B2** corresponds to the most significant bit of the input, **B0** corresponds to the least significant bit of the input, so the middle bit is **B1**. 
 
 
 ### Putting It All Together
