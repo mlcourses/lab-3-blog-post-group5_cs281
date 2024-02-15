@@ -70,6 +70,12 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 <img src="./assets/7segment.png" alt="7-segment display" />
 
+### Designing The Combinational Circuit
+
+#### 1. Designing the Logic with Karnaugh Maps 
+
+#### 2. Testing the Logic with **Logisim**
+
 ### The Voltage Divider
 
 #### 1. Understanding the Voltage Divider
@@ -92,16 +98,92 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 #### 2. Understanding the Potentiometer
 
+- Potentiometer, commonly referred to as "pot," serves as a variable resistor pivotal in voltage divider circuits that allow us to fine tune our voltage divider. 
+
+<img src="./assets/pots.png" alt="pots" />
+
+- Our breadboards have two potentiometers: a 10kΩ pot, situated as a knob at the board's bottom, and a 1kΩ variant on the right. The combined resistance for the 10kΩ pot is fixed at 10kΩ, allowing manipulation of R1 and R2 to achieve desired voltage levels. Similarly, the 1kΩ pot operates comparably but maintains a total resistance of 1kΩ.
+
+- We can change the knob to achieve various values for **R1** and **R2** between 0 and 10kΩ so long as their sum is 10kΩ. The 1k potentiometer acts in the same way except for its total resistance being 1kΩ.
+
 #### 3. Wiring the Potentiometer
+
+<img src="./assets/voltage_divider3.png" alt="volt divider with pots" />
+
+- Above is how we can wire up the potentiometer. The leftmost connection column of the pot will be wired to GND while the rightmost column of the pot will be wired to a +5V. 
+
+- The middle connections are all the same as they will pick off the voltage **V** that depends on the position of the potentiometer knob. We will use one of these moddle connections as the output voltage **V** that acts as the analog input of the Arduino, which will then be converted to data outputs that power up the combinational circuit. 
+
+- Here's how the wiring looks like: 
+
+<img src="./assets/pot_wiring.png" alt="pot wiring" />
 
 #### 4. Reading and Converting the Potentiometer Output
 
+- We can start by hooking up the potentiometer to the Arduino by connecting one of the middle connections to the analog input **A0** pin on the Arduino, as well as connecting its GND pin to a GND source from the breadboard.
 
-### Designing The Combinational Circuit
+- After establishing connection with the Arduino via the USB-A cable, we can navigate to the Arduino IDE on our laptop, create a new sketch for this lab and type in the following code: 
 
-#### 1. Designing the Logic with Karnaugh Maps 
+```c++
+const int potpin = 0;
+const int WAIT = 1000; // 1 second delay
+void setup () {
+Serial.begin(9600);
+pinMode(11,OUTPUT);
+pinMode(12,OUTPUT);
+pinMode(13,OUTPUT);
+pinMode(potpin,INPUT);
+}
+void loop () {
+int val;
+int dval;
+int bitval;
+val = analogRead(potpin);
+dval = val/171; // normalizing factor-->adjust this to get the range you want
+Serial.print("From Pot: ");
+Serial.println(val);
+Serial.print("Decimal Value Conversion: ");
+Serial.println(dval);
+//use bit ops to get each bit!
+bitval = dval & 1;
+digitalWrite(11,bitval); // signal C
+dval = dval >> 1;
+bitval = dval & 1;
+digitalWrite(12,bitval); // signal B
+dval = dval >> 1;
+bitval = dval & 1;
+digitalWrite(13,bitval); // signal A
+delay(WAIT);
+}
+```
+//13 - B2, 12 - B1, 11 - B0
 
-#### 2. Testing the Logic with **Logisim**
+- Lets dive into what the code does! 
+
+- The `potpin` variable represents the analog input pin that receives the output going from the middle connection of the potentiometer. It's set to 0, which is the `A0` pin on the Arduino.
+
+- Looking at the `setup()` function, the `Serial.begin(9600)` line Initializes serial communication with a baud rate of 9600, and the `pinMode()` function configures the pins used for the digital outputs (pins 11, 12, and 13) and analog inputs (potpin).
+
+- Looking at the `loop()` function, the function `analogRead()` reads the analog input voltage from the potentiometer and stores it in variable `val`.
+
+- `dval = val / 171`: Converts the analog reading to a decimal value (`dval`) using a normalization factor. If we got values outside the 0 to 5 range, you can subtract `val` with a certain value to get the right `dval` values we want. 
+
+- Serial Print Statements: Outputs the potentiometer reading (val) and its corresponding decimal value (dval) to the serial monitor.
+
+- Using bit manipulation methods, the decimal value (`dval`) is converted into binary representation by extracting each bit sequentially.
+
+- `dval & 1` extracts the least significant bit of the 3-bit signal input, which is then written to pin 11 (digitalWrite(11, bitval)), representing signal C.
+After each LSB extraction, dval is shifted right by 1 bit (dval = dval >> 1) to prepare for the next bit extraction.
+delay(WAIT): Pauses the program execution for 1 second before repeating the loop.
+
+
+- The variable `dval` represents the decimal value converted from the analog input from the potentiometer. The most significant bit of `dval` corresponds to pin 13, the middle bit corresponds to pin 12, and the least significant bit corresponds to pin 11.
+
+- Pin 13 (digital pin 13) represents the most significant bit of dval, so it will be the input **B2** of our combinational circuit.
+
+- Pin 12 (digital pin 12) represents the middle bit of dval, so it will be the input **B1** of our combinational circuit.
+
+- Pin 11 (digital pin 11) represents the least significant bit of dval, so it will be the input **B0** of our combinational circuit.
 
 
 ### Putting It All Together
