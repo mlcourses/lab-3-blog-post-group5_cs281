@@ -116,6 +116,8 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 #### 3. Testing the Logic with **Logisim**
 
+- Based on the boolean expressions above, we can create a circuit on Logisim and test the circuit with different inputs to see if the LED lights up the way we want. 
+
 
 
 ### The Voltage Divider
