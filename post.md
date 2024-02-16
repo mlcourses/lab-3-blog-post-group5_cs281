@@ -72,9 +72,36 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 ### Designing The Combinational Circuit
 
+- We are going to design the logic of the combinational circuit. The digital signal will be a decimal value between 0 and 5 inclusive. Depending on the value, we will light up the LEDs accordingly. 
+
+- Lets consider **B2**, **B1**, **B0** to be three binary inputs (with **B0** being the least significant bit of the 3-bit digital input that comes from the Arduino). 
+
+- Since we are not using the values 6 and 7, so we can put **x** - "don't care" into the places in the truth table that represents the output of the decimal values 6 an 7 for each LED segment.
+
+<img src="./assets/decimal_values.png" alt="decimal values" />
+
 #### 1. Constructing Truth Table
 
+- From the LED Functionality table above, we can construct a truth table as below:
+
+<img src="./assets/truth_tables.png" alt="truth tables" />
+
 #### 2. Simplifying the Boolean expressions using Karnaugh Maps
+
+- From last lab, we were introduced to the concept of SOP design (Sum Of Products) to derive boolean expressions from truth tables. However, the biggest drawback here is that it is not always possible to simplify those constructed boolean expressions down to 2 or less terms, making our circuit unnecessarily complex (See example for LED A below). That is when another method called Karnaugh Maps come into play. 
+
+<img src="./assets/SOP.png" alt="SOP" />
+
+- For techniques regarding the K Maps technique, you can refer to this [link](https://www.geeksforgeeks.org/introduction-of-k-map-karnaugh-map/)
+
+- We can construct the K Maps for each LED segment like be low:
+
+
+1. **LED A**:
+<img src="./assets/LED_A.png" alt="LED A" />
+
+2. **LED B**: 
+<img src="./assets/LED_B.png" alt="LED B" />
 
 #### 3. Testing the Logic with **Logisim**
 
@@ -126,7 +153,7 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 - After establishing connection with the Arduino via the USB-A cable, we can navigate to the Arduino IDE on our laptop, create a new sketch for this lab and type in the following code: 
 
-```c++
+```C++
 const int potpin = 0;
 const int WAIT = 1000; // 1 second delay
 void setup () {
@@ -158,7 +185,6 @@ digitalWrite(13,bitval); // signal A
 delay(WAIT);
 }
 ```
-//13 - B2, 12 - B1, 11 - B0
 
 - Lets dive into what the code does! 
 
@@ -174,8 +200,8 @@ delay(WAIT);
 
 - Using bit manipulation methods, the decimal value (`dval`) is converted into binary representation by extracting each bit sequentially.
 
-- `dval & 1` extracts the least significant bit of the 3-bit signal input, which is then written to pin 11 (digitalWrite(11, bitval)), representing signal C.
-After each LSB extraction, dval is shifted right by 1 bit (dval = dval >> 1) to prepare for the next bit extraction.
+- `dval & 1` extracts the least significant bit of the 3-bit signal input, which is then written to pin 11 (`digitalWrite(11, bitval)`), representing signal C.
+After each LSB extraction, dval is shifted right by 1 bit (`dval = dval >> 1`) to prepare for the next bit extraction.
 
 - `delay(WAIT)`: Pauses the program execution for 1000 miliseconds before repeating the loop.
 
