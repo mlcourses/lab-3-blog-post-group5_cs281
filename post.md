@@ -67,7 +67,6 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 - The display is controlled by electronic circuits that determine which segments should be illuminated to represent the desired digit or character.
 
 - Below is an example of a 7-segment display. 
-
 <img src="./assets/7segment.png" alt="7-segment display" />
 
 ### Designing The Combinational Circuit
@@ -76,20 +75,17 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 - Lets consider **B2**, **B1**, **B0** to be three binary inputs (with **B0** being the least significant bit of the 3-bit digital input that comes from the Arduino). 
 
-- Since we are not using the values 6 and 7, so we can put **x** - "don't care" into the places in the truth table that represents the output of the decimal values 6 an 7 for each LED segment.
-
+- Since we are not using the values 6 and 7, so we can put **x** - "don't care" into the places in the truth table that represents the output of the decimal values 6 an 7 for each LED segment
 <img src="./assets/decimal_values.png" alt="decimal values" />
 
 #### 1. Constructing Truth Table
 
 - From the LED Functionality table above, we can construct a truth table as below:
-
 <img src="./assets/truth_tables.png" alt="truth tables" />
 
 #### 2. Simplifying the Boolean expressions using Karnaugh Maps
 
 - From last lab, we were introduced to the concept of SOP design (Sum Of Products) to derive boolean expressions from truth tables. However, the biggest drawback here is that it is not always possible to simplify those constructed boolean expressions down to 2 or less terms, making our circuit unnecessarily complex (See example for LED A below). That is when another method called Karnaugh Maps come into play. 
-
 <img src="./assets/SOP.png" alt="SOP" />
 
 - For techniques regarding the K Maps technique, you can refer to this [link](https://www.geeksforgeeks.org/introduction-of-k-map-karnaugh-map/)
@@ -103,24 +99,38 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 2. **LED B**: 
 <img src="./assets/LED_B.png" alt="LED B" />
 
+3. **LED C**: 
+<img src="./assets/LED_C.png" alt="LED C" />
+
+4. **LED D**: 
+<img src="./assets/LED_D.png" alt="LED D" />
+
+5. **LED E**: 
+<img src="./assets/LED_E.png" alt="LED E" />
+
+6. **LED F**: 
+<img src="./assets/LED_F.png" alt="LED F" />
+
+7. **LED G**: 
+<img src="./assets/LED_G.png" alt="LED G" />
+
 #### 3. Testing the Logic with **Logisim**
+
+
 
 ### The Voltage Divider
 
 #### 1. Understanding the Voltage Divider
 
 - A voltage divider is a fundamental circuit used to generate a specific voltage level from a power supply. Imagine it as a way to adjust the volume of electricity, similar to adjusting the volume knob on a speaker.
-
 <img src="./assets/voltage_divider1.png" alt="voltage divider example" />
 
 - Consider the circuit above. Here we have a single resistor in a circuit that is wired between Vcc and GND. The equation that governs the operation of this circuit is **V = IR** with **V** being the voltage, **I** as the current and **R** is the resistance value of the resistor. 
-
 <img src="./assets/voltage_divider2.png" alt="2 resistors" />
 
 - Now lets look at an example of a voltage divider above. We are having two resistors lining up in one path. The total resistance **R = R1 + R2** would be used to compute the current **I**. 
 
 - Given an electricity current of +5 Volts that flows through the circuit, some voltage is lost at **R1** and the rest is lost at **R2**. The ratio of these resistance values determines the amount of voltage at location **V** as a a fraction of the voltage **Vcc**, which can be calculated like below: 
-
 <img src="./assets/equation.png" alt="equation" />
 
 - By choosing our two resistance values, we can pick any voltage **V** that we desire (between 0 and 5 Volts).
@@ -128,7 +138,6 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 #### 2. Understanding the Potentiometer
 
 - Potentiometer, commonly referred to as "pot," serves as a variable resistor pivotal in voltage divider circuits that allow us to fine tune our voltage divider. 
-
 <img src="./assets/pots.png" alt="pots" />
 
 - Our breadboards have two potentiometers: a 10kΩ pot, situated as a knob at the board's bottom, and a 1kΩ variant on the right. The combined resistance for the 10kΩ pot is fixed at 10kΩ, allowing manipulation of R1 and R2 to achieve desired voltage levels. Similarly, the 1kΩ pot operates comparably but maintains a total resistance of 1kΩ.
@@ -136,7 +145,6 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 - We can change the knob to achieve various values for **R1** and **R2** between 0 and 10kΩ so long as their sum is 10kΩ. The 1k potentiometer acts in the same way except for its total resistance being 1kΩ.
 
 #### 3. Wiring the Potentiometer
-
 <img src="./assets/voltage_divider3.png" alt="volt divider with pots" />
 
 - Above is how we can wire up the potentiometer. The leftmost connection column of the pot will be wired to GND while the rightmost column of the pot will be wired to a +5V. 
@@ -144,7 +152,6 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 - The middle connections are all the same as they will pick off the voltage **V** that depends on the position of the potentiometer knob. We will use one of these moddle connections as the output voltage **V** that acts as the analog input of the Arduino, which will then be converted to data outputs that power up the combinational circuit. 
 
 - Here's how the wiring looks like: 
-
 <img src="./assets/pot_wiring.png" alt="pot wiring" />
 
 #### 4. Reading and Converting the Potentiometer Output
