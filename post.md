@@ -158,7 +158,7 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/f48d2a
 - Here's how the wiring looks like: 
 <img src="./assets/pot_wiring.png" alt="pot wiring" />
 
-#### 4. Reading and Converting the Potentiometer Output
+#### 4. Reading the Potentiometer Output
 
 - We can start by hooking up the potentiometer to the Arduino by connecting one of the middle connections to the analog input **A0** pin on the Arduino, as well as connecting its GND pin to a GND source from the breadboard.
 
@@ -225,6 +225,11 @@ After each LSB extraction, dval is shifted right by 1 bit (`dval = dval >> 1`) t
 - Pin 11 (digital pin 11) represents the least significant bit of dval, so it will be the input **B0** of our combinational circuit.
 
 &rarr; If we relate back to the truth table of all the LED segments of the 7-segment display with three inputs, we can see that the data inputs that come from the Arduino's digital pins (13, 12, 11) corresponds to the truth table's inputs **B2**, **B1**, **B0**. This is because when we consider the 3-bit inputs, **B2** corresponds to the most significant bit of the input, **B0** corresponds to the least significant bit of the input, so the middle bit is **B1**. 
+
+#### 5. Testing the Potentiometer Output
+
+- Given the wiring of the potentiometer above, we can adjust our wired 10k potentiometer knob and check if we get the right decimal value printed out on the Arduino IDE's Serial Monitor (0 to 5 depending on the pot). 
+
 
 
 ### Putting It All Together
