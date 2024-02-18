@@ -232,6 +232,10 @@ After each LSB extraction, dval is shifted right by 1 bit (`dval = dval >> 1`) t
 
 
 
+https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991e4-5c8d-4fae-b6cd-ffac72646651
+
+
+
 ### Putting It All Together
 
 ## Testing
