@@ -277,7 +277,23 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991
 
 - Below are the tests for each decimal value:
 
+1. Decimal value: 0
+<img src="./assets/0.png" />
 
+2. Decimal value: 1
+<img src="./assets/1.png" />
+
+3. Decimal value: 2
+<img src="./assets/2.png" />
+
+4. Decimal value: 3
+<img src="./assets/3.png" />
+
+5. Decimal value: 4
+<img src="./assets/4.png" />
+
+6. Decimal value: 5
+<img src="./assets/5.png" />
 
 ## Testing
 
