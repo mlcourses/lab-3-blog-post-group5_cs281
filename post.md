@@ -231,12 +231,42 @@ After each LSB extraction, dval is shifted right by 1 bit (`dval = dval >> 1`) t
 - Given the wiring of the potentiometer above, we can adjust our wired 10k potentiometer knob and check if we get the right decimal value printed out on the Arduino IDE's Serial Monitor (0 to 5 depending on the pot). 
 
 
-
 https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991e4-5c8d-4fae-b6cd-ffac72646651
 
 
 
 ### Putting It All Together
+
+#### 1. Converting the Potentiometer Output
+
+- So we have completed testing our Arduino's analog input that comes from the potentiometer. Now we can 
+
+<img src="./assets/circuit_overview.png" />
+
+
+- Considering the 7-segment display, we have to put the resistors between each segment and its corresponding inputs. We can do it by tying each pin of the segment to its own row through a resistor. 
+
+- Note that the 7-segment display has to be sideways on the breadboard to keep the pins on seperate rows. 
+
+<img src="./assets/resistors.png" />
+
+- Since our outputs are correctly in the 0 to 5 range, we don't have to subtract any offset from the Potentiometer output before dividing it with 171 (in the code).
+
+#### 2. Wiring the Circuit
+
+- Given all the Boolean expressions above that we have constructed for each LED segment, we can design our combinational circuit that uses 1 NOT gate IC (7404), 1 AND gate IC (7408), and 2 OR gate ICs (7432).
+
+- Before actually wiring it on the breadboard, we can draw the circuit like below: 
+
+<img src="./assets/circuit.png" />
+
+- Now we can follow the circuit design above to wire our circuit on the breadboard: 
+
+<img src="./assets/wiring.png" />
+
+#### 3. Testing the Circuit
+
+
 
 ## Testing
 
