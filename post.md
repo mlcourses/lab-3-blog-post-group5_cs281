@@ -239,7 +239,7 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991
 
 #### 1. Converting the Potentiometer Output
 
-- So we have completed testing our Arduino's analog input that comes from the potentiometer. Now we can 
+- So we have completed testing our Arduino's analog input that comes from the potentiometer. Now we can connect the Arduino's digital output as inputs for our combinational circuit that will light up the LED segments, which is the main objective of the lab. The diagram below illustrates the circuit overall:
 
 <img src="./assets/circuit_overview.png" />
 
@@ -265,6 +265,17 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991
 <img src="./assets/wiring.png" />
 
 #### 3. Testing the Circuit
+
+- The goal of the circuit is to display the correct decimal output values of 0 to 5 using the LED segment display that corresponds to the decimal output values of the potentiometer output. 
+
+- Here is the testing procedure: 
+
+    1. Start at the left-most value of the 10k potentiometer knob
+    2. Check the Serial Monitor on our laptop's Arduino IDE to see if it prints out 0s as first decimal value being tested
+    3. Check the LED segment display to see if it lights up 0
+    4. Repeat the process for values 1 to 5. 
+
+- Below are the tests for each decimal value:
 
 
 
