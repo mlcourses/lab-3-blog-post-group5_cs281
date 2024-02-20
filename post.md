@@ -18,7 +18,7 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 3. Use Karnaugh Maps to design and optimize the circuit's logics.
 
-4. Use logisim to design and test a boolean circuit that combines the minimized functions for each LED segment.
+4. Use Logisim to design and test a boolean circuit that combines the minimized functions for each LED segment.
 
 5. Construct and test a voltage divider circuit using a potentiometer to generate analog input signals.
 
@@ -118,8 +118,11 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 
 - Based on the boolean expressions above, we can create a circuit on Logisim and test the circuit with different inputs to see if the LED lights up the way we want. 
 
-https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/f48d2a36-d944-4ee7-be36-770f3de44590
+- Logisim is a digital circuit design and simulation software that allows users to create and test logic circuits. It provides a visual interface where users can drag and drop components such as logic gates, flip-flops, and other digital elements onto a canvas to design their circuits. 
 
+- We can simulate the behavior of their circuits before building them physically. We can input values into the circuit and observe how those values propagate through the components.
+
+https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/f48d2a36-d944-4ee7-be36-770f3de44590
 
 
 ### The Voltage Divider
@@ -270,9 +273,9 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991
 
 - Here is the testing procedure: 
 
-    1. Start at the left-most value of the 10k potentiometer knob
-    2. Check the Serial Monitor on our laptop's Arduino IDE to see if it prints out 0s as first decimal value being tested
-    3. Check the LED segment display to see if it lights up 0
+    1. Start at the left-most value of the 10k potentiometer knob.
+    2. Check the Serial Monitor on our laptop's Arduino IDE to see if it prints out 0s as first decimal value being tested.
+    3. Check the LED segment display to see if it lights up 0.
     4. Repeat the process for values 1 to 5. 
 
 - Below are the tests for each decimal value:
@@ -295,10 +298,10 @@ https://github.com/mlcourses/lab-3-blog-post-group5_cs281/assets/87928752/cec991
 6. Decimal value: 5
 <img src="./assets/5.png" />
 
-## Testing
+- Notice that the output of LED segment A is wired through a red wire to the LED segment D. This is because both has the same boolean expression.
 
 ## Conclusion
 
-
+- In conclusion, this lab delved into the intricate design and construction of a ramp circuit utilizing analog and digital components. Through meticulous prelab preparations involving truth tables, SOP expressions, and K-maps, we laid the groundwork for efficient circuit implementation. By leveraging voltage dividers and potentiometers, we harnessed analog signals to generate digital outputs, facilitating the display of ascending numerical values on a 7-segment LED. The systematic approach of minimizing circuit expressions and optimizing IC utilization underscored the importance of efficiency in circuit design. Overall, this lab provided invaluable hands-on experience in navigating the complexities of combinational logic and analog-to-digital conversion, essential skills for aspiring computer systems engineers.
 
 
