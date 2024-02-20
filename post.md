@@ -88,7 +88,7 @@ In this lab, we'll delve into constructing a circuit that displays numbers on a 
 - From last lab, we were introduced to the concept of SOP design (Sum Of Products) to derive boolean expressions from truth tables. However, the biggest drawback here is that it is not always possible to simplify those constructed boolean expressions down to 2 or less terms, making our circuit unnecessarily complex (See example for LED A below). That is when another method called Karnaugh Maps come into play. 
 <img src="./assets/SOP.png" alt="SOP" />
 
-- For techniques regarding the K Maps technique, you can refer to this [link](https://www.geeksforgeeks.org/introduction-of-k-map-karnaugh-map/)
+- For information regarding the K Maps technique, you can refer to this [link](https://www.geeksforgeeks.org/introduction-of-k-map-karnaugh-map/)
 
 - We can construct the K Maps for each LED segment like be low:
 
